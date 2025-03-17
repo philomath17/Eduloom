@@ -1,0 +1,18 @@
+/* Default Light Theme */
+body {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  /* Dark Theme */
+  body.dark-theme {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  /* Keep logo and buttons unchanged */
+  .logo, .button {
+    filter: none !important; /* Ensures no changes */
+  }
+  

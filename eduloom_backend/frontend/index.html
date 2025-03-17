@@ -102,7 +102,7 @@
               id="themeToggle"
               class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100"
             >
-              <i class="ri-sun-line text-xl"></i>
+              <i id="themeIcon" class="ri-sun-line text-xl"></i>
             </button>
             <a href="{% url 'signin' %}">
                 <button
@@ -141,11 +141,13 @@
                 designed for the future.
               </p>
               <div class="flex space-x-4">
-                <button
-                  class="bg-primary text-white px-6 py-3 rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap"
-                >
-                  Get Started
-                </button>
+                <a href="{% url 'signin' %}">
+                  <button class="bg-primary text-white px-6 py-3 rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                    Get Started
+                  </button>
+                </a>
+                
+
                 <button
                   class="bg-white text-primary border border-primary px-6 py-3 rounded-button hover:bg-primary hover:text-white transition-colors whitespace-nowrap"
                 >
@@ -423,11 +425,11 @@
           Join thousands of students worldwide and transform your future with
           EduLoom's innovative learning platform
         </p>
-        <button
-          class="mt-8 bg-primary text-white px-8 py-4 rounded-button text-lg hover:bg-primary/90 transition-colors whitespace-nowrap"
-        >
-          Begin Learning Now
-        </button>
+        <a href="{% url 'signup' %}">
+          <button class="mt-8 bg-primary text-white px-8 py-4 rounded-button text-lg hover:bg-primary/90 transition-colors whitespace-nowrap">
+            Begin Learning Now
+          </button>
+        </a>
       </div>
     </section>
     <footer class="bg-gray-800 text-white py-12">

@@ -30,10 +30,18 @@
         },
       };
     </script>
+    <style>
+      .error-message {
+        color: red;
+        font-size: 0.875rem;
+        margin-top: 5px;
+        display: none;
+      }
+    </style>
   </head>
   <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-4">
     <nav class="w-full bg-white shadow-md py-4 px-6 flex justify-between items-center fixed top-0 left-0 right-0">
-      <a href="index.html" class="text-primary text-2xl font-['Pacifico']">EduLoom</a>
+      <a href="{% url 'home' %}" class="text-primary text-2xl font-['Pacifico']">EduLoom</a>
     </nav>
     <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 mt-20">
       <div class="text-center mb-8">
@@ -45,7 +53,7 @@
           <p class="text-center text-red-500">{{ message }}</p>
         {% endfor %}
       {% endif %}
-      <form method="POST" class="space-y-6">
+      <form method="POST" class="space-y-6" onsubmit="return validateForm()">
         {% csrf_token %}
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
@@ -57,12 +65,16 @@
         </div>
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-          <input type="password" name="password" class="block w-full py-2 px-3 border border-gray-300 rounded-button text-sm" placeholder="Enter your password" required>
+          <input type="password" id="password" name="password" class="block w-full py-2 px-3 border border-gray-300 rounded-button text-sm" placeholder="Enter your password" required>
+          <p id="password-error" class="text-red-500 text-sm mt-1 hidden"></p> <!-- Error message -->
         </div>
+        
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
-          <input type="password" name="confirm_password" class="block w-full py-2 px-3 border border-gray-300 rounded-button text-sm" placeholder="Confirm your password" required>
+          <input type="password" id="confirm_password" name="confirm_password" class="block w-full py-2 px-3 border border-gray-300 rounded-button text-sm" placeholder="Confirm your password" required>
+          <p id="confirm-password-error" class="text-red-500 text-sm mt-1 hidden"></p> <!-- Error message -->
         </div>
+        
         <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded-button hover:bg-primary/90 transition-colors">Sign Up</button>
         <div class="text-center text-sm text-gray-600">
           <span>Already have an account?</span>
@@ -70,5 +82,7 @@
         </div>
       </form>
     </div>
+
+    
   </body>
 </html>
